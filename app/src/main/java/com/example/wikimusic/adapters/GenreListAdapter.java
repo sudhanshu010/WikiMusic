@@ -14,18 +14,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wikimusic.BR;
 import com.example.wikimusic.R;
+import com.example.wikimusic.generated.callback.OnClickListener;
 import com.example.wikimusic.models.genre.Genre;
 import com.example.wikimusic.models.genre.GenreList;
+import com.example.wikimusic.viewmodels.GenreListViewModel;
 
 import java.util.List;
 
 public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.ViewHolder> {
 
     private List<Genre> genreList;
+    private GenreListViewModel genreListViewModel;
     private Context context;
 
-    public GenreListAdapter(List<Genre> genreList, Context context) {
+    public GenreListAdapter(List<Genre> genreList, GenreListViewModel genreListViewModel, Context context) {
         this.genreList = genreList;
+        this.genreListViewModel = genreListViewModel;
         this.context = context;
     }
 
@@ -42,13 +46,12 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Genre genre = genreList.get(position);
-        holder.bind(genre);
+        holder.bind(genre,genreListViewModel);
     }
 
 
     @Override
     public int getItemCount() {
-        //Log.i("Sudhanshu","size "+genreList.size());
         return genreList.size();
     }
 
@@ -60,9 +63,11 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.View
             this.binding = binding;
         }
 
-        public void bind(Object obj) {
-            this.binding.setVariable(BR.genre,obj);
+        public void bind(Genre genre,GenreListViewModel genreListViewModel) {
+            this.binding.setVariable(BR.genre,genre);
+            this.binding.setVariable(BR.genreListViewModel,genreListViewModel);
             this.binding.executePendingBindings();
         }
+
     }
 }
