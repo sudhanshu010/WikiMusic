@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.wikimusic.viewmodels.genre.GenreDetailsViewModel" />
+            type="com.example.wikimusic.genre.viewmodels.GenreDetailsViewModel" />
         <variable
             name="description"
             type="java.lang.String" />
@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.genre.genreDetails.GenreDetailsActivity">
+        tools:context=".genre.ui.GenreDetailsActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"

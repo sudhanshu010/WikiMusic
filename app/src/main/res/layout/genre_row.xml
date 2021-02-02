@@ -6,35 +6,58 @@
 
         <variable
             name="genre"
-            type="com.example.wikimusic.models.genre.Genre" />
+            type="com.example.wikimusic.genre.models.Genre" />
 
         <variable
             name="genreListViewModel"
-            type="com.example.wikimusic.viewmodels.genre.GenreListViewModel" />
+            type="com.example.wikimusic.genre.viewmodels.GenreListViewModel" />
         
 
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:foregroundGravity="center_horizontal"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="25dp"
-        app:contentPaddingLeft="10dp"
-        app:contentPaddingRight="10dp"
         android:layout_marginHorizontal="1dp"
-        android:layout_marginVertical="10dp"
+        android:layout_marginVertical="5dp"
+        app:cardElevation="0dp"
         android:onClick="@{()->genreListViewModel.onCardSelected(genre)}"
         >
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textAllCaps="true"
-            android:layout_gravity="center"
-            android:paddingVertical="15dp"
-            android:textAlignment="center"
-            android:text="@={genre.name}"
-             />
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/backgroundImage"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
+                android:src="@drawable/ic_bluerecord"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </ImageView>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@={genre.name}"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:fontFamily="@font/galdeano"
+                android:textAllCaps="true"
+                app:layout_constraintVertical_bias="0.8"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@id/backgroundImage"
+                app:layout_constraintTop_toTopOf="@id/backgroundImage"
+                app:layout_constraintEnd_toEndOf="@id/backgroundImage"
+                app:layout_constraintStart_toStartOf="@+id/backgroundImage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 </layout>
