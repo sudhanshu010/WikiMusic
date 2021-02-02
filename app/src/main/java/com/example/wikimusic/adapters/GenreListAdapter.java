@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wikimusic.BR;
 import com.example.wikimusic.R;
-import com.example.wikimusic.generated.callback.OnClickListener;
+
 import com.example.wikimusic.models.genre.Genre;
 import com.example.wikimusic.models.genre.GenreList;
 import com.example.wikimusic.viewmodels.GenreListViewModel;
@@ -68,6 +68,8 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.View
             this.binding.setVariable(BR.genreListViewModel,genreListViewModel);
             this.binding.executePendingBindings();
         }
+
+
 
     }
 }

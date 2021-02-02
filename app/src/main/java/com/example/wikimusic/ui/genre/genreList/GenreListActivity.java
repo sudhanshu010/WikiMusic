@@ -1,5 +1,6 @@
-package com.example.wikimusic.ui.Genre;
+package com.example.wikimusic.ui.genre.genreList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -13,10 +14,16 @@ import com.example.wikimusic.R;
 import com.example.wikimusic.adapters.GenreListAdapter;
 import com.example.wikimusic.databinding.ActivityGenreListBinding;
 import com.example.wikimusic.models.genre.Genre;
+import com.example.wikimusic.ui.genre.genreDetails.GenreDetailsActivity;
 import com.example.wikimusic.viewmodels.GenreListViewModel;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class GenreListActivity extends AppCompatActivity implements GenreListListener {
 
@@ -59,7 +66,9 @@ public class GenreListActivity extends AppCompatActivity implements GenreListLis
     }
 
     @Override
-    public void onSelected() {
-        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
+    public void onGenreSelected(Genre genre) {
+        Intent i = new Intent(this, GenreDetailsActivity.class);
+        i.putExtra("genreName",genre.getName());
+        startActivity(i);
     }
 }

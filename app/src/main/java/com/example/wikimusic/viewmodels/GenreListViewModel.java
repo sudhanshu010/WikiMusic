@@ -1,6 +1,5 @@
 package com.example.wikimusic.viewmodels;
 
-import android.content.Context;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
@@ -9,7 +8,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.wikimusic.models.genre.Genre;
 import com.example.wikimusic.respository.GenreListRepository;
-import com.example.wikimusic.ui.Genre.GenreListListener;
+import com.example.wikimusic.ui.genre.genreList.GenreListListener;
 
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class GenreListViewModel extends ViewModel {
 
     public void init(){
         if(mGenreList ==null) {
-            mGenreListRepository = mGenreListRepository.getInstance();
+            mGenreListRepository = GenreListRepository.getInstance();
             mGenreList = mGenreListRepository.getGenreList();
             genreListListener = null;
         }
@@ -37,8 +36,6 @@ public class GenreListViewModel extends ViewModel {
 
     public void onCardSelected(Genre genre){
         if(genreListListener != null)
-            genreListListener.onSelected();
-        Log.i("Sudhanshu","Hey");
-
+            genreListListener.onGenreSelected(genre);
     }
 }

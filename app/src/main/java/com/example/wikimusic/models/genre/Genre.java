@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class Genre {
 
     @SerializedName("name")
-    public String name;
+    private String name;
 
     @SerializedName("count")
     private long count;
@@ -13,10 +13,14 @@ public class Genre {
     @SerializedName("reach")
     private long reach;
 
-    public Genre(String name, long count, long reach) {
+    @SerializedName("wiki")
+    private GenreDescriptionWrapper descriptionWrapper;
+
+    public Genre(String name, long count, long reach, GenreDescriptionWrapper descriptionWrapper) {
         this.name = name;
         this.count = count;
         this.reach = reach;
+        this.descriptionWrapper = descriptionWrapper;
     }
 
     public String getName() {
@@ -41,5 +45,13 @@ public class Genre {
 
     public void setReach(long reach) {
         this.reach = reach;
+    }
+
+    public GenreDescriptionWrapper getDescriptionWrapper() {
+        return descriptionWrapper;
+    }
+
+    public void setDescriptionWrapper(GenreDescriptionWrapper descriptionWrapper) {
+        this.descriptionWrapper = descriptionWrapper;
     }
 }
