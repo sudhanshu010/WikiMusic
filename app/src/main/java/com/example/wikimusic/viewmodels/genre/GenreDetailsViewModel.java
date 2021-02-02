@@ -1,11 +1,11 @@
-package com.example.wikimusic.viewmodels;
+package com.example.wikimusic.viewmodels.genre;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.wikimusic.models.genre.Genre;
-import com.example.wikimusic.respository.GenreDetailsRepository;
+import com.example.wikimusic.respository.genre.GenreDetailsRepository;
 
 public class GenreDetailsViewModel extends ViewModel {
 
@@ -17,7 +17,6 @@ public class GenreDetailsViewModel extends ViewModel {
         if(mGenre == null){
             this.genreName = genreName;
             genreDetailsRepository = GenreDetailsRepository.getInstance();
-
         }
     }
 

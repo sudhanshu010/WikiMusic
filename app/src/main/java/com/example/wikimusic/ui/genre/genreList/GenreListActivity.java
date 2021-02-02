@@ -2,7 +2,6 @@ package com.example.wikimusic.ui.genre.genreList;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -15,22 +14,17 @@ import com.example.wikimusic.adapters.GenreListAdapter;
 import com.example.wikimusic.databinding.ActivityGenreListBinding;
 import com.example.wikimusic.models.genre.Genre;
 import com.example.wikimusic.ui.genre.genreDetails.GenreDetailsActivity;
-import com.example.wikimusic.viewmodels.GenreListViewModel;
+import com.example.wikimusic.viewmodels.genre.GenreListViewModel;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class GenreListActivity extends AppCompatActivity implements GenreListListener {
 
     private ActivityGenreListBinding binding;
     private GenreListViewModel genreListViewModel;
     private GenreListAdapter genreListAdapter;
-    private List<Genre> genres = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

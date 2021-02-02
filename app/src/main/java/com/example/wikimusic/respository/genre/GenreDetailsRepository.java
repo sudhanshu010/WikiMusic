@@ -1,20 +1,15 @@
-package com.example.wikimusic.respository;
-
-import android.util.Log;
+package com.example.wikimusic.respository.genre;
 
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.wikimusic.api.RetrofitClient;
 import com.example.wikimusic.models.genre.Genre;
 import com.example.wikimusic.models.genre.GenreDetailsResponse;
-import com.example.wikimusic.models.genre.GenreListResponse;
 import com.example.wikimusic.util.Constants;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.http.GET;
 
 public class GenreDetailsRepository {
 

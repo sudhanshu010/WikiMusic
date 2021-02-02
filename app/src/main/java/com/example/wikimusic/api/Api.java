@@ -1,5 +1,6 @@
 package com.example.wikimusic.api;
 
+import com.example.wikimusic.models.Album.AlbumListResponse;
 import com.example.wikimusic.models.genre.GenreDetailsResponse;
 import com.example.wikimusic.models.genre.GenreListResponse;
 
@@ -17,4 +18,9 @@ public interface Api {
 
     @GET("?method=tag.getinfo&format=json")
     Call<GenreDetailsResponse> getGenre(@Query("tag") String genreName, @Query("api_key") String apiKey);
+
+    @GET("?method=tag.gettopalbums&format=json")
+    Call<AlbumListResponse> getAlbumList(@Query("tag") String genreName, @Query("api_key") String apiKey);
+
+
 }

@@ -1,14 +1,9 @@
-package com.example.wikimusic.respository;
+package com.example.wikimusic.respository.genre;
 
-import android.util.Log;
-import android.widget.Toast;
-
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.wikimusic.api.RetrofitClient;
 import com.example.wikimusic.models.genre.Genre;
-import com.example.wikimusic.models.genre.GenreList;
 import com.example.wikimusic.models.genre.GenreListResponse;
 import com.example.wikimusic.util.Constants;
 

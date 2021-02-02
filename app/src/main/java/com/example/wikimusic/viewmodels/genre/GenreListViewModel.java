@@ -1,13 +1,11 @@
-package com.example.wikimusic.viewmodels;
-
-import android.util.Log;
+package com.example.wikimusic.viewmodels.genre;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.wikimusic.models.genre.Genre;
-import com.example.wikimusic.respository.GenreListRepository;
+import com.example.wikimusic.respository.genre.GenreListRepository;
 import com.example.wikimusic.ui.genre.genreList.GenreListListener;
 
 import java.util.List;
@@ -15,13 +13,13 @@ import java.util.List;
 public class GenreListViewModel extends ViewModel {
 
     private MutableLiveData<List<Genre>> mGenreList;
-    private GenreListRepository mGenreListRepository;
+    private GenreListRepository genreListRepository;
     private GenreListListener genreListListener;
 
     public void init(){
         if(mGenreList ==null) {
-            mGenreListRepository = GenreListRepository.getInstance();
-            mGenreList = mGenreListRepository.getGenreList();
+            genreListRepository = GenreListRepository.getInstance();
+            mGenreList = genreListRepository.getGenreList();
             genreListListener = null;
         }
     }

@@ -1,23 +1,19 @@
 package com.example.wikimusic.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
-import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wikimusic.BR;
 import com.example.wikimusic.R;
 
 import com.example.wikimusic.models.genre.Genre;
-import com.example.wikimusic.models.genre.GenreList;
-import com.example.wikimusic.viewmodels.GenreListViewModel;
+import com.example.wikimusic.viewmodels.genre.GenreListViewModel;
 
 import java.util.List;
 
@@ -68,8 +64,6 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.View
             this.binding.setVariable(BR.genreListViewModel,genreListViewModel);
             this.binding.executePendingBindings();
         }
-
-
 
     }
 }
