@@ -15,6 +15,10 @@ To use the MVVM design Model in this android app.
 - Picasso
 - de.hdodenhof:circleimageview:3.1.0
 
+## Assumption
+
+Data is always fetched from api. Internet issue or data not present in api such cases are not handled at present.
+
 ## File Organisation
 App contains 6 package namely
  - genre
