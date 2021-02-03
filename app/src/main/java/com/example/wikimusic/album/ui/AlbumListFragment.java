@@ -37,6 +37,10 @@ public class AlbumListFragment extends Fragment implements AlbumListListener{
         this.genreName = genreName;
     }
 
+    public AlbumListFragment(){
+
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

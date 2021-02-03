@@ -57,7 +57,7 @@ public class AlbumDetailsActivity extends AppCompatActivity implements GenreList
             @Override
             public void onChanged(AlbumDetails album) {
                 activityAlbumDetailsBinding.setAlbum(album);
-                Picasso.get().load(album.getImageList().get(4).getUrl()).into(albumImage);
+                Picasso.get().load(album.getImageList().get(3).getUrl()).into(albumImage);
                 genreList.addAll(album.getGenreList().getGenreList());
                 genreListAdapter.notifyDataSetChanged();
             }

@@ -37,6 +37,10 @@ public class TrackListFragment extends Fragment implements TrackListListener{
         this.genreName = genreName;
     }
 
+    public TrackListFragment(){
+
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import com.example.wikimusic.R;
 import com.example.wikimusic.album.adapters.AlbumListAdapter;
 import com.example.wikimusic.album.models.Album;
+import com.example.wikimusic.album.ui.AlbumDetailsActivity;
 import com.example.wikimusic.album.ui.AlbumListListener;
 import com.example.wikimusic.album.viewmodels.AlbumListViewModel;
 import com.example.wikimusic.album.viewmodels.ArtistAlbumViewModel;
@@ -122,8 +123,10 @@ public class ArtistDetailsActivity extends AppCompatActivity implements GenreLis
         topTracks.setLayoutManager(linearLayoutManagerVertical);
         topTracks.setAdapter(trackListAdapter);
 
+        AlbumListViewModel albumListViewModel = new AlbumListViewModel();
+        albumListViewModel.setAlbumListListener(this);
         linearLayoutManagerHorizontal = new LinearLayoutManager(this, RecyclerView.HORIZONTAL,false);
-        albumListAdapter = new AlbumListAdapter(albumList,new AlbumListViewModel(),this);
+        albumListAdapter = new AlbumListAdapter(albumList,albumListViewModel,this);
         topAlbums.setLayoutManager(linearLayoutManagerHorizontal);
         topAlbums.setAdapter(albumListAdapter);
 
@@ -154,7 +157,7 @@ public class ArtistDetailsActivity extends AppCompatActivity implements GenreLis
 
     @Override
     public void onAlbumSelected(Album album) {
-        Intent i = new Intent(this,ArtistDetailsActivity.class);
+        Intent i = new Intent(this, AlbumDetailsActivity.class);
         i.putExtra("artistName",album.getName());
         startActivity(i);
     }

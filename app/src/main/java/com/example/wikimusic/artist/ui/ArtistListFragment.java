@@ -33,6 +33,9 @@ public class ArtistListFragment extends Fragment implements ArtistListListener{
     private List<Artist> artistList;
     private ArtistListAdapter artistListAdapter;
     private GridLayoutManager gridLayoutManager;
+    public ArtistListFragment(){
+
+    }
     public ArtistListFragment(String genreName) {
 
     }
