@@ -15,12 +15,15 @@ public class GenreListViewModel extends ViewModel {
     private MutableLiveData<List<Genre>> mGenreList;
     private GenreListRepository genreListRepository;
     private GenreListListener genreListListener;
+    private MutableLiveData<Boolean> expand;
 
     public void init(){
         if(mGenreList ==null) {
             genreListRepository = GenreListRepository.getInstance();
             mGenreList = genreListRepository.getGenreList();
             genreListListener = null;
+            expand = new MutableLiveData<>();
+            expand.postValue(false);
         }
     }
 
@@ -36,4 +39,13 @@ public class GenreListViewModel extends ViewModel {
         if(genreListListener != null)
             genreListListener.onGenreSelected(genre);
     }
+
+    public void OnExpandClicked(){
+        expand.postValue(!expand.getValue());
+    }
+
+    public MutableLiveData<Boolean> getExpand(){
+        return expand;
+    }
+
 }

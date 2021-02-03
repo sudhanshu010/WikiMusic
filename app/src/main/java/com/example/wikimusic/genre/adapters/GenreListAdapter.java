@@ -22,6 +22,7 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.View
     private List<Genre> genreList;
     private GenreListViewModel genreListViewModel;
     private Context context;
+    private boolean expand;
 
     public GenreListAdapter(List<Genre> genreList, GenreListViewModel genreListViewModel, Context context) {
         this.genreList = genreList;
@@ -48,7 +49,7 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.View
 
     @Override
     public int getItemCount() {
-        return genreList.size();
+            return genreList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

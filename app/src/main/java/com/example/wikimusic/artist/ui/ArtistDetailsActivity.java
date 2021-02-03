@@ -158,7 +158,8 @@ public class ArtistDetailsActivity extends AppCompatActivity implements GenreLis
     @Override
     public void onAlbumSelected(Album album) {
         Intent i = new Intent(this, AlbumDetailsActivity.class);
-        i.putExtra("artistName",album.getName());
+        i.putExtra("albumName",album.getName());
+        i.putExtra("artistName",artistName);
         startActivity(i);
     }
 

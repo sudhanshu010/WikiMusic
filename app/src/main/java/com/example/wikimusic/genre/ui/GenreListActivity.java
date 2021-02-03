@@ -14,6 +14,7 @@ import com.example.wikimusic.R;
 import com.example.wikimusic.genre.adapters.GenreListAdapter;
 import com.example.wikimusic.databinding.ActivityGenreListBinding;
 import com.example.wikimusic.genre.models.Genre;
+import com.example.wikimusic.genre.models.GenreList;
 import com.example.wikimusic.genre.viewmodels.GenreListViewModel;
 
 import java.util.List;
@@ -35,12 +36,22 @@ public class GenreListActivity extends AppCompatActivity implements GenreListLis
         genreListViewModel.getGenreList().observe(this, new Observer<List<Genre>>() {
             @Override
             public void onChanged(List<Genre> genres) {
-                genreListAdapter = new GenreListAdapter(genres, genreListViewModel, getApplicationContext());
-                StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
-                binding.setAdapter(genreListAdapter);
-                binding.setLayoutManager(gridLayoutManager);
+                genreListViewModel.getExpand().observe(GenreListActivity.this, new Observer<Boolean>() {
+                    @Override
+                    public void onChanged(Boolean aBoolean) {
+
+                        if(aBoolean)
+                            genreListAdapter = new GenreListAdapter(genres, genreListViewModel, getApplicationContext());
+                        else
+                            genreListAdapter = new GenreListAdapter(genres.subList(10,genres.size()),genreListViewModel,getApplicationContext());
+                        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
+                        binding.setAdapter(genreListAdapter);
+                        binding.setLayoutManager(gridLayoutManager);
+                    }
+                });
             }
         });
+
     }
 
     @Override
