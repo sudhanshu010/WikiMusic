@@ -1,5 +1,7 @@
 package com.example.wikimusic.genre.viewmodels;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -40,7 +42,9 @@ public class GenreListViewModel extends ViewModel {
             genreListListener.onGenreSelected(genre);
     }
 
-    public void OnExpandClicked(){
+    public void OnExpandClicked()
+    {
+        Log.i("Sudhanshu","clicked");
         expand.postValue(!expand.getValue());
     }
 

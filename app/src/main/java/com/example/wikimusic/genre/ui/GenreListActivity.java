@@ -17,6 +17,7 @@ import com.example.wikimusic.genre.models.Genre;
 import com.example.wikimusic.genre.models.GenreList;
 import com.example.wikimusic.genre.viewmodels.GenreListViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GenreListActivity extends AppCompatActivity implements GenreListListener {
@@ -24,33 +25,40 @@ public class GenreListActivity extends AppCompatActivity implements GenreListLis
     private ActivityGenreListBinding binding;
     private GenreListViewModel genreListViewModel;
     private GenreListAdapter genreListAdapter;
+    private List<Genre> genres;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_genre_list);
-
+        genres = new ArrayList<>();
         genreListViewModel = ViewModelProviders.of(this).get(GenreListViewModel.class);
         genreListViewModel.init();
         genreListViewModel.setGenreListListener(GenreListActivity.this);
-        genreListViewModel.getGenreList().observe(this, new Observer<List<Genre>>() {
+        binding.setViewmodel(genreListViewModel);
+        genreListViewModel.getExpand().observe(this, new Observer<Boolean>() {
             @Override
-            public void onChanged(List<Genre> genres) {
-                genreListViewModel.getExpand().observe(GenreListActivity.this, new Observer<Boolean>() {
+            public void onChanged(Boolean aBoolean) {
+                genreListViewModel.getGenreList().observe(GenreListActivity.this, new Observer<List<Genre>>() {
                     @Override
-                    public void onChanged(Boolean aBoolean) {
+                    public void onChanged(List<Genre> genre) {
+                        if(aBoolean) {
+                            genres.clear();
+                            genres.addAll(genre);
+                        }
+                        else{
+                            genres.clear();
+                            genres.addAll(genre.subList(0,10));
+                        }
 
-                        if(aBoolean)
-                            genreListAdapter = new GenreListAdapter(genres, genreListViewModel, getApplicationContext());
-                        else
-                            genreListAdapter = new GenreListAdapter(genres.subList(10,genres.size()),genreListViewModel,getApplicationContext());
-                        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
-                        binding.setAdapter(genreListAdapter);
-                        binding.setLayoutManager(gridLayoutManager);
+                        genreListAdapter.notifyDataSetChanged();
                     }
                 });
             }
         });
+
+
+        initRecyclerView();
 
     }
 
@@ -74,5 +82,14 @@ public class GenreListActivity extends AppCompatActivity implements GenreListLis
         Intent i = new Intent(this, GenreDetailsActivity.class);
         i.putExtra("genreName",genre.getName());
         startActivity(i);
+    }
+
+    public void initRecyclerView(){
+
+        genreListAdapter = new GenreListAdapter(genres, genreListViewModel, getApplicationContext());
+        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
+        binding.setAdapter(genreListAdapter);
+        binding.setLayoutManager(gridLayoutManager);
+
     }
 }
