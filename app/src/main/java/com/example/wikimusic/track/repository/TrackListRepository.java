@@ -1,7 +1,10 @@
 package com.example.wikimusic.track.repository;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 
+import com.airbnb.lottie.L;
 import com.example.wikimusic.api.RetrofitClient;
 import com.example.wikimusic.track.models.Track;
 import com.example.wikimusic.track.models.TrackListResponse;
@@ -28,7 +31,6 @@ public class TrackListRepository {
     public MutableLiveData<List<Track>> getmTrackList(String genreName){
         if(mTrackList == null){
             mTrackList = new MutableLiveData<>();
-
         }
         loadData(genreName);
         return mTrackList;
@@ -41,10 +43,13 @@ public class TrackListRepository {
             public void onResponse(Call<TrackListResponse> call, Response<TrackListResponse> response) {
                 TrackListResponse trackListResponse = response.body();
                 mTrackList.postValue(trackListResponse.getTrackList().getTrackList());
+                Log.i("Sudhanshu","success");
             }
 
             @Override
             public void onFailure(Call<TrackListResponse> call, Throwable t) {
+
+                Log.i("Sudhanshu",t.getMessage());
 
             }
         });

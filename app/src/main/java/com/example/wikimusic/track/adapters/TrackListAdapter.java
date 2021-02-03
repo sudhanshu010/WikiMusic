@@ -33,8 +33,6 @@ public class TrackListAdapter extends RecyclerView.Adapter<TrackListAdapter.View
         this.context = context;
     }
 
-
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

@@ -16,7 +16,6 @@ public interface Api {
 
     String BASE_URL = "https://ws.audioscrobbler.com/2.0/";
 
-
     @GET("?method=tag.getTopTags&format=json")
     Call<GenreListResponse> getGenreList(@Query("api_key") String apiKey);
 
@@ -37,8 +36,5 @@ public interface Api {
 
     @GET("?method=album.getinfo&format=json")
     Call<AlbumDetailsResponse> getAlbum(@Query("album") String albumName,@Query("artist") String artistName, @Query("api_key") String apiKey);
-
-
-
 
 }

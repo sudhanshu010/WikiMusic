@@ -28,6 +28,7 @@
             android:background="@drawable/corner_radius"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="100dp"
             android:padding="10dp">
 
             <TextView
