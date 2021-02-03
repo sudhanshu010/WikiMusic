@@ -72,6 +72,7 @@ public class AlbumListFragment extends Fragment implements AlbumListListener{
     public void onAlbumSelected(Album album) {
 
         Intent i = new Intent(getContext(),AlbumDetailsActivity.class);
+        i.putExtra("artistName",album.getArtist().getName());
         i.putExtra("albumName",album.getName());
         Objects.requireNonNull(getActivity()).startActivity(i);
     }

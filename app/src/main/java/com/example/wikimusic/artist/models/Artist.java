@@ -1,6 +1,7 @@
 package com.example.wikimusic.artist.models;
 
 
+import com.example.wikimusic.genre.models.GenreList;
 import com.example.wikimusic.models.images.Image;
 import com.google.gson.annotations.SerializedName;
 
@@ -23,12 +24,48 @@ public class Artist {
     @SerializedName("image")
     public List<Image> imageList;
 
-    public Artist(String name, String mbid, String url, String streamable, List<Image> imageList) {
+    @SerializedName("similar")
+    private SimilarArtist similarArtitst;
+
+    @SerializedName("tags")
+    private GenreList genreList;
+
+    @SerializedName("stats")
+    private Stats stats;
+
+    public Artist(String name, String mbid, String url, String streamable, List<Image> imageList, SimilarArtist similarArtitst, GenreList genreList, Stats stats) {
         this.name = name;
         this.mbid = mbid;
         this.url = url;
         this.streamable = streamable;
         this.imageList = imageList;
+        this.similarArtitst = similarArtitst;
+        this.genreList = genreList;
+        this.stats = stats;
+    }
+
+    public SimilarArtist getSimilarArtitst() {
+        return similarArtitst;
+    }
+
+    public void setSimilarArtitst(SimilarArtist similarArtitst) {
+        this.similarArtitst = similarArtitst;
+    }
+
+    public GenreList getGenreList() {
+        return genreList;
+    }
+
+    public void setGenreList(GenreList genreList) {
+        this.genreList = genreList;
+    }
+
+    public Stats getStats() {
+        return stats;
+    }
+
+    public void setStats(Stats stats) {
+        this.stats = stats;
     }
 
     public String getName() {

@@ -28,8 +28,9 @@ public class TrackListRepository {
     public MutableLiveData<List<Track>> getmTrackList(String genreName){
         if(mTrackList == null){
             mTrackList = new MutableLiveData<>();
-            loadData(genreName);
+
         }
+        loadData(genreName);
         return mTrackList;
     }
 

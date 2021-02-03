@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WikiMusic">
-        <activity android:name=".album.ui.AlbumDetailsActivity"></activity>
+        <activity android:name=".artist.ui.ArtistDetailsActivity"></activity>
+        <activity android:name=".album.ui.AlbumDetailsActivity" />
         <activity android:name=".genre.ui.GenreDetailsActivity" />
         <activity android:name=".genre.ui.GenreListActivity">
             <intent-filter>

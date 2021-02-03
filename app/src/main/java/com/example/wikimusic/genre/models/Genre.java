@@ -1,5 +1,6 @@
 package com.example.wikimusic.genre.models;
 
+import com.example.wikimusic.models.DescriptionWrapper;
 import com.google.gson.annotations.SerializedName;
 
 public class Genre {
@@ -14,9 +15,9 @@ public class Genre {
     private long reach;
 
     @SerializedName("wiki")
-    private GenreDescriptionWrapper descriptionWrapper;
+    private DescriptionWrapper descriptionWrapper;
 
-    public Genre(String name, long count, long reach, GenreDescriptionWrapper descriptionWrapper) {
+    public Genre(String name, long count, long reach, DescriptionWrapper descriptionWrapper) {
         this.name = name;
         this.count = count;
         this.reach = reach;
@@ -47,11 +48,11 @@ public class Genre {
         this.reach = reach;
     }
 
-    public GenreDescriptionWrapper getDescriptionWrapper() {
+    public DescriptionWrapper getDescriptionWrapper() {
         return descriptionWrapper;
     }
 
-    public void setDescriptionWrapper(GenreDescriptionWrapper descriptionWrapper) {
+    public void setDescriptionWrapper(DescriptionWrapper descriptionWrapper) {
         this.descriptionWrapper = descriptionWrapper;
     }
 }

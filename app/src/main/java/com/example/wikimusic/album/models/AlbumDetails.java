@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Album {
+public class AlbumDetails {
 
     @SerializedName("name")
     private String name;
@@ -21,7 +21,7 @@ public class Album {
     private String url;
 
     @SerializedName("artist")
-    private Artist artist;
+    private String artistName;
 
     @SerializedName("listeners")
     private String listeners;
@@ -41,11 +41,11 @@ public class Album {
     @SerializedName("image")
     private List<Image> imageList;
 
-    public Album(String name, String mbid, String url, Artist artist, String listeners, String playCount, TrackList trackList, GenreList genreList, DescriptionWrapper descriptionWrapper, List<Image> imageList) {
+    public AlbumDetails(String name, String mbid, String url, String artistName, String listeners, String playCount, TrackList trackList, GenreList genreList, DescriptionWrapper descriptionWrapper, List<Image> imageList) {
         this.name = name;
         this.mbid = mbid;
         this.url = url;
-        this.artist = artist;
+        this.artistName = artistName;
         this.listeners = listeners;
         this.playCount = playCount;
         this.trackList = trackList;
@@ -54,13 +54,15 @@ public class Album {
         this.imageList = imageList;
     }
 
-    public Artist getArtist() {
-        return artist;
+    public String getArtistName() {
+        return artistName;
     }
 
-    public void setArtist(Artist artist) {
-        this.artist = artist;
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
     }
+
+
 
     public String getListeners() {
         return listeners;

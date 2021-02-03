@@ -1,5 +1,7 @@
 package com.example.wikimusic.album.repository;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.wikimusic.api.RetrofitClient;
@@ -29,8 +31,8 @@ public class AlbumListRepository {
 
         if(mAlbumList == null){
             mAlbumList = new MutableLiveData<>();
-            loadData(genreName);
         }
+        loadData(genreName);
         return mAlbumList;
     }
 

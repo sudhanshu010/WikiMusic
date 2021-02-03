@@ -6,6 +6,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.example.wikimusic.R;
 import com.example.wikimusic.databinding.FragmentTracksBinding;
+import com.example.wikimusic.track.adapters.TrackListAdapter;
 import com.example.wikimusic.track.models.Track;
 import com.example.wikimusic.track.viewmodels.TrackListViewModel;
 
@@ -24,6 +27,9 @@ public class TrackListFragment extends Fragment implements TrackListListener{
     private FragmentTracksBinding fragmentTracksBinding;
     private TrackListViewModel trackListViewModel;
     private String genreName;
+    private List<Track> trackList;
+    private TrackListAdapter trackListAdapter;
+    LinearLayoutManager linearLayoutManager;
 
     public TrackListFragment(String genreName) {
 
@@ -49,14 +55,25 @@ public class TrackListFragment extends Fragment implements TrackListListener{
         trackListViewModel.getTrackList().observe(this, new Observer<List<Track>>() {
             @Override
             public void onChanged(List<Track> tracks) {
-                Log.i("Sudhanshu_Track",tracks.get(0).getName());
+                trackList.addAll(tracks);
+                trackListAdapter.notifyDataSetChanged();
             }
         });
+        initRecyclerView();
         return fragmentTracksBinding.getRoot();
     }
 
     @Override
     public void onTrackSelected(Track track) {
+
+    }
+
+    public void initRecyclerView(){
+
+        linearLayoutManager = new LinearLayoutManager(this.getContext(), RecyclerView.VERTICAL,false);
+        TrackListAdapter trackListAdapter = new TrackListAdapter(trackList,trackListViewModel,this.getContext());
+        fragmentTracksBinding.setAdapter(trackListAdapter);
+        fragmentTracksBinding.setLayoutManager(linearLayoutManager);
 
     }
 }

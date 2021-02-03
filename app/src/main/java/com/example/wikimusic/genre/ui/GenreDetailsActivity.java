@@ -14,7 +14,6 @@ import com.example.wikimusic.databinding.ActivityGenreDetailsBinding;
 import com.example.wikimusic.genre.models.Genre;
 import com.example.wikimusic.genre.viewmodels.GenreDetailsViewModel;
 import com.google.android.material.tabs.TabLayout;
-import com.jgabrielfreitas.core.BlurImageView;
 
 public class GenreDetailsActivity extends AppCompatActivity {
 
@@ -41,7 +40,7 @@ public class GenreDetailsActivity extends AppCompatActivity {
         genreDetailsViewModel.getGenre().observe(this, new Observer<Genre>() {
             @Override
             public void onChanged(Genre genre) {
-                activityGenreDetailsBinding.setDescription(genre.getDescriptionWrapper().getGenreDesrciption());
+                activityGenreDetailsBinding.setDescription(genre.getDescriptionWrapper().getDescription());
                 activityGenreDetailsBinding.setName(genre.getName());
                 activityGenreDetailsBinding.setReach(String.valueOf(genre.getReach()));
                 activityGenreDetailsBinding.setTotal(String.valueOf(genre.getReach()));
