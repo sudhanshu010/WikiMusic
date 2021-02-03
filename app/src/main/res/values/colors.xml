@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#007CBE</color>
     <color name="teal_blue">#0C7489</color>
+    <color name="mint_cream">#F4FFFD</color>
+    <color name="pink">#FD445F</color>
 </resources>

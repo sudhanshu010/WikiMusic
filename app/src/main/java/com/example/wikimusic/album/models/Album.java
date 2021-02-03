@@ -1,5 +1,6 @@
 package com.example.wikimusic.album.models;
 
+import com.example.wikimusic.artist.models.Artist;
 import com.example.wikimusic.models.images.Image;
 import com.google.gson.annotations.SerializedName;
 
@@ -16,7 +17,8 @@ public class Album {
     @SerializedName("url")
     private String url;
 
-    //private Artist artist;
+    @SerializedName("")
+    private Artist artist;
 
     @SerializedName("image")
     private List<Image> imageList;

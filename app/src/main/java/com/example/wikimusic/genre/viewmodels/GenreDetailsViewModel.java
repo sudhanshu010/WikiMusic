@@ -25,4 +25,6 @@ public class GenreDetailsViewModel extends ViewModel {
         return mGenre;
     }
 
+
+
 }
