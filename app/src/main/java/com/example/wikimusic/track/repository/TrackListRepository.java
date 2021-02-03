@@ -43,13 +43,11 @@ public class TrackListRepository {
             public void onResponse(Call<TrackListResponse> call, Response<TrackListResponse> response) {
                 TrackListResponse trackListResponse = response.body();
                 mTrackList.postValue(trackListResponse.getTrackList().getTrackList());
-                Log.i("Sudhanshu","success");
+
             }
 
             @Override
             public void onFailure(Call<TrackListResponse> call, Throwable t) {
-
-                Log.i("Sudhanshu",t.getMessage());
 
             }
         });

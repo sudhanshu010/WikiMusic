@@ -33,7 +33,10 @@ public class Artist {
     @SerializedName("stats")
     private Stats stats;
 
-    public Artist(String name, String mbid, String url, String streamable, List<Image> imageList, SimilarArtist similarArtitst, GenreList genreList, Stats stats) {
+    @SerializedName("bio")
+    private Bio bio;
+
+    public Artist(String name, String mbid, String url, String streamable, List<Image> imageList, SimilarArtist similarArtitst, GenreList genreList, Stats stats, Bio bio) {
         this.name = name;
         this.mbid = mbid;
         this.url = url;
@@ -42,6 +45,15 @@ public class Artist {
         this.similarArtitst = similarArtitst;
         this.genreList = genreList;
         this.stats = stats;
+        this.bio = bio;
+    }
+
+    public Bio getBio() {
+        return bio;
+    }
+
+    public void setBio(Bio bio) {
+        this.bio = bio;
     }
 
     public SimilarArtist getSimilarArtitst() {

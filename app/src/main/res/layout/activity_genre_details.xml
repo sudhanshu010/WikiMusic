@@ -27,161 +27,168 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".genre.ui.GenreDetailsActivity">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/genre_details_background"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0">
+            android:layout_height="match_parent"
+            tools:context=".genre.ui.GenreDetailsActivity">
 
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/gilroy_bold"
-                android:text="@{name}"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="30sp"
+                android:background="@drawable/genre_details_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0" />
-
-
-            <ImageView
-                android:id="@+id/genreImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="20dp"
-                android:elevation="15dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/tunes"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                app:layout_constraintVertical_bias="0" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintVertical_bias="0"
-                android:layout_marginTop="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/genreImage">
-
-
-                <TextView
-                    android:textSize="15sp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/gilroy_bold"
-                    android:text="@{reach}"
-                    android:textAlignment="viewEnd" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:textSize="15sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/gilroy_bold"
-                    android:text="Reach"
-                    android:textAlignment="viewStart" />
-
-
-                <TextView
-                    android:textSize="15sp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/gilroy_bold"
-                    android:text="@{total}"
-                    android:textAlignment="viewEnd" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:textSize="15sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/gilroy_bold"
-                    android:text="Total"
-                    android:textAlignment="viewStart" />
-
-            </LinearLayout>
-
-            <com.borjabravo.readmoretextview.ReadMoreTextView
-                android:id="@+id/description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginVertical="10dp"
-                android:fontFamily="@font/gilroy"
-                android:text="@{description}"
-                android:textStyle="bold"
-                app:trimMode="trimModeLine"
-                app:trimLength="25"
-                app:showTrimExpandedText="false"
-                app:trimCollapsedText="Read More"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linearLayout"
                 app:layout_constraintVertical_bias="0">
 
-            </com.borjabravo.readmoretextview.ReadMoreTextView>
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@{name}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
+
+                <ImageView
+                    android:id="@+id/genreImage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="20dp"
+                    android:elevation="15dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tunes"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    app:layout_constraintVertical_bias="0" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintVertical_bias="0"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/genreImage">
+
+
+                    <TextView
+                        android:textSize="15sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/gilroy_bold"
+                        android:text="@{reach}"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/gilroy_bold"
+                        android:text="Reach"
+                        android:textAlignment="viewStart" />
+
+
+                    <TextView
+                        android:textSize="15sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/gilroy_bold"
+                        android:text="@{total}"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/gilroy_bold"
+                        android:text="Total"
+                        android:textAlignment="viewStart" />
+
+                </LinearLayout>
+
+                <com.borjabravo.readmoretextview.ReadMoreTextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="10dp"
+                    android:fontFamily="@font/gilroy"
+                    android:text="@{description}"
+                    android:textStyle="bold"
+                    app:trimMode="trimModeLine"
+                    app:trimLength="25"
+                    app:showTrimExpandedText="false"
+                    app:trimCollapsedText="Read More"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
+                    app:layout_constraintVertical_bias="0">
+
+                </com.borjabravo.readmoretextview.ReadMoreTextView>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="20sp"
+                    app:tabIndicatorColor="@color/pink"
+                    app:tabTextColor="@color/pink"
+                    android:background="@color/mint_cream"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/description"
+                    app:layout_constraintVertical_bias="1">
+
+                </com.google.android.material.tabs.TabLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
                 android:layout_width="match_parent"
-                android:layout_marginHorizontal="20sp"
-                app:tabIndicatorColor="@color/pink"
-                app:tabTextColor="@color/pink"
-                android:background="@color/mint_cream"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/description"
-                app:layout_constraintVertical_bias="1">
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-            </com.google.android.material.tabs.TabLayout>
+            </androidx.viewpager.widget.ViewPager>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+    </androidx.core.widget.NestedScrollView>
 
-        </androidx.viewpager.widget.ViewPager>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

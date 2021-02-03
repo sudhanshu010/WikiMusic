@@ -4,8 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class Bio {
 
-
-
     @SerializedName("published")
     private String published;
 

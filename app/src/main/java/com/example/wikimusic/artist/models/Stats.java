@@ -7,7 +7,7 @@ public class Stats {
     @SerializedName("listeners")
     private String listeners;
 
-    @SerializedName("playCount")
+    @SerializedName("playcount")
     private String playCount;
 
     public Stats(String listeners, String playCount) {
@@ -16,6 +16,13 @@ public class Stats {
     }
 
     public String getListeners() {
+        int count =  Integer.parseInt(listeners);
+        if(count>1000000){
+            return count/1000000+"M";
+        }
+        if(count>1000){
+            return count/1000+"K";
+        }
         return listeners;
     }
 
@@ -24,6 +31,14 @@ public class Stats {
     }
 
     public String getPlayCount() {
+        int count =  Integer.parseInt(playCount);
+        if(count>1000000){
+            return count/1000000+"M";
+        }
+
+        if(count>1000){
+            return count/1000+"K";
+        }
         return playCount;
     }
 

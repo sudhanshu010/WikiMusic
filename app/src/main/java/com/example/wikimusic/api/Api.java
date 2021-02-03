@@ -2,10 +2,12 @@ package com.example.wikimusic.api;
 
 import com.example.wikimusic.album.models.AlbumDetailsResponse;
 import com.example.wikimusic.album.models.AlbumListResponse;
+import com.example.wikimusic.album.models.ArtistAlbumReponse;
 import com.example.wikimusic.artist.models.ArtistDetailsResponse;
 import com.example.wikimusic.artist.models.ArtistListResponse;
 import com.example.wikimusic.genre.models.GenreDetailsResponse;
 import com.example.wikimusic.genre.models.GenreListResponse;
+import com.example.wikimusic.track.models.ArtistTrackResponse;
 import com.example.wikimusic.track.models.TrackListResponse;
 
 import retrofit2.Call;
@@ -36,5 +38,11 @@ public interface Api {
 
     @GET("?method=album.getinfo&format=json")
     Call<AlbumDetailsResponse> getAlbum(@Query("album") String albumName,@Query("artist") String artistName, @Query("api_key") String apiKey);
+
+    @GET("?method=artist.gettoptracks&format=json")
+    Call<ArtistTrackResponse> getArtistTrack(@Query("artist") String artistName, @Query("api_key") String apiKey);
+
+    @GET("?method=artist.gettopalbums&format=json")
+    Call<ArtistAlbumReponse> getArtistAlbum(@Query("artist") String artistName, @Query("api_key") String apiKey);
 
 }
